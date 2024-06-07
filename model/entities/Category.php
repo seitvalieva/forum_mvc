@@ -7,11 +7,12 @@ use App\Entity;
     En programmation orientée objet, une classe finale (final class) est une classe que vous ne pouvez pas étendre, c'est-à-dire qu'aucune autre classe ne peut hériter de cette classe. En d'autres termes, une classe finale ne peut pas être utilisée comme classe parente.
 */
 
-final class User extends Entity{
+final class Category extends Entity{
 
     private $id;
-    private $nickName;
+    private $name;
 
+    // chaque entité aura le même constructeur grâce à la méthode hydrate (issue de App\Entity)
     public function __construct($data){         
         $this->hydrate($data);        
     }
@@ -19,7 +20,8 @@ final class User extends Entity{
     /**
      * Get the value of id
      */ 
-    public function getId(){
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -28,30 +30,31 @@ final class User extends Entity{
      *
      * @return  self
      */ 
-    public function setId($id){
+    public function setId($id)
+    {
         $this->id = $id;
+
         return $this;
     }
 
     /**
-     * Get the value of nickName
+     * Get the value of name
      */ 
-    public function getNickName(){
-        return $this->nickName;
+    public function getName(){
+        return $this->name;
     }
 
     /**
-     * Set the value of nickName
+     * Set the value of name
      *
      * @return  self
      */ 
-    public function setNickName($nickName){
-        $this->nickName = $nickName;
-
+    public function setName($name){
+        $this->name = $name;
         return $this;
     }
 
-    public function __toString() {
-        return $this->nickName;
+    public function __toString(){
+        return $this->name;
     }
 }
