@@ -131,9 +131,10 @@ Le dossier public contiendra tous les assets nécessaires à notre projet
 - ...
 
 ### ✅ App
-Le dossier "app" contient l'ensemble des classes nécessaires au bon fonctionnement du framework et ainsi fournir des classes et méthodes génériques pour éviter d'avoir à répéter des portions de code. 
-- **AbstractController.php** : fournit 2 méthode pour la restriction de rôle et une méthode facilitant la redirection <br>
-Ainsi on pourra implémenter ceci : 
+The "app" folder contains all the classes necessary for the proper functioning of the framework and thus provide generic classes and methods to avoid having to repeat portions of code.
+- **AbstractController.php**: provides 2 methods for role restriction and a method facilitating redirection <br>
+So we can implement this:
+ 
 ``` php
 // Donner accès à la méthode "users" uniquement aux utilisateurs qui ont le rôle ROLE_USER
 public function users(){
