@@ -147,13 +147,14 @@ ou
 $this->redirectTo("security", "login");
 ```
 
-- **Autoloader.php** : permet un auto-chargement des classes du projet (appelé dans index.php)
-- **ControllerInterface.php** : permet d'imposer la méthode "index" aux controllers qui l'implémente 
-- **DAO.php** : fournit toutes les méthodes génériques qui interagissent avec la base de données : connexion, SELECT, INSERT, UPDATE, DELETE
-- **Entity.php** : fournit la méthode d'hydratation des instances de classes du projet (transformer un tableau associatif en objet ou collection d'objets comme le ferait un ORM comme Doctrine dans Symfony)
-- **Manager.php** : fournit les méthodes permettant de renvoyer les résultats du Manager vers le Controller correspondant
-- **Session.php** : fournit les méthodes relatives à la session (messages flash et gestion des utilisateurs) <br>
-La méthode suivante permet de vérifier qu'un utilisateur est bien connecté :
+- **Autoloader.php**: allows autoloading of project classes (called in index.php)
+- **ControllerInterface.php**: allows you to impose the "index" method on the controllers that implement it
+- **DAO.php**: provides all generic methods that interact with the database: connection, SELECT, INSERT, UPDATE, DELETE
+- **Entity.php**: provides the method for hydrating the project's class instances (transforming an associative array into an object or collection of objects as would an ORM like Doctrine in Symfony)
+- **Manager.php**: provides methods for returning the results of the Manager to the corresponding Controller
+- **Session.php**: provides methods relating to the session (flash messages and user management) <br>
+The following method allows you to verify that a user is logged in:
+
 ``` php
 public static function getUser(){
     return (isset($_SESSION['user'])) ? $_SESSION['user'] : false;

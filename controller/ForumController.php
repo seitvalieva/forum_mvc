@@ -4,41 +4,41 @@ namespace Controller;
 use App\Session;
 use App\AbstractController;
 use App\ControllerInterface;
-use Model\Managers\CategoryManager;
 use Model\Managers\TopicManager;
+use Model\Managers\PostManager;
 
 class ForumController extends AbstractController implements ControllerInterface{
 
     public function index() {
         
         // créer une nouvelle instance de CategoryManager
-        $categoryManager = new CategoryManager();
+        $topicManager = new TopicManager();
         // récupérer la liste de toutes les catégories grâce à la méthode findAll de Manager.php (triés par nom)
-        $categories = $categoryManager->findAll(["name", "DESC"]);
+        $topics = $topicManager->findAll(["publicationDate", "DESC"]);
 
         // le controller communique avec la vue "listCategories" (view) pour lui envoyer la liste des catégories (data)
         return [
-            "view" => VIEW_DIR."forum/listCategories.php",
-            "meta_description" => "Liste des catégories du forum",
+            "view" => VIEW_DIR."forum/listTopics.php",
+            "meta_description" => "Liste des topics du forum",
             "data" => [
-                "categories" => $categories
+                "topics" => $topics
             ]
         ];
     }
 
-    public function listTopicsByCategory($id) {
+    public function listMessagesByTopic($id) {
 
         $topicManager = new TopicManager();
-        $categoryManager = new CategoryManager();
-        $category = $categoryManager->findOneById($id);
-        $topics = $topicManager->findTopicsByCategory($id);
+        $messageManager = new MessageManager();
+        $topic = $topicManager->findOneById($id);
+        $messages = $messageManager->findMessagesByTopic($id);
 
         return [
-            "view" => VIEW_DIR."forum/listTopics.php",
-            "meta_description" => "Liste des topics par catégorie : ".$category,
+            "view" => VIEW_DIR."forum/listMessages.php",
+            "meta_description" => "Liste des messages par topic : ".$topic,
             "data" => [
-                "category" => $category,
-                "topics" => $topics
+                "topic" => $topic,
+                "messages" => $messages
             ]
         ];
     }
