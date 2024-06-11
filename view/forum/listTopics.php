@@ -9,5 +9,6 @@
 foreach($topics as $topic ){ ?>
 
     <p><a href="index.php?ctrl=forum&action=listMessagesByTopic&id=<?= $topic->getId() ?>">
-        <?= $topic ?></a> par <?= $topic->getUser() ?></p>
+        <?= $topic ?></a> par <?= $topic->getUser() ?>
+        <?= date('d-m-Y H:i:s', strtotime($topic->getPublicationDate())) ?><br></p>
 <?php }

@@ -31,13 +31,17 @@ CREATE TABLE IF NOT EXISTS `message` (
   KEY `id_topic` (`topic_id`) USING BTREE,
   CONSTRAINT `FK__forum_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`),
   CONSTRAINT `FK_message_topic` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id_topic`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table forum_sevilia.message: ~3 rows (approximately)
+-- Dumping data for table forum_sevilia.message: ~7 rows (approximately)
 INSERT INTO `message` (`id_message`, `textMessage`, `postDate`, `user_id`, `topic_id`) VALUES
-	(1, 'hello', NULL, 1, 2),
-	(2, 'hola', NULL, 3, 1),
-	(3, 'salut', NULL, 2, 3);
+	(1, 'hello', '2024-06-11 16:07:02', 1, 2),
+	(2, 'hola', '2024-06-11 16:07:04', 3, 1),
+	(3, 'salut', '2024-06-11 16:07:09', 2, 3),
+	(4, 'que tal?', '2024-06-11 16:07:11', 3, 1),
+	(5, 'how are you?', '2024-06-11 16:07:12', 1, 2),
+	(6, 'comment ca va?', '2024-06-11 16:07:12', 2, 3),
+	(7, 'test', '2024-06-11 16:07:13', 1, 1);
 
 -- Dumping structure for table forum_sevilia.topic
 CREATE TABLE IF NOT EXISTS `topic` (
@@ -52,9 +56,9 @@ CREATE TABLE IF NOT EXISTS `topic` (
 
 -- Dumping data for table forum_sevilia.topic: ~3 rows (approximately)
 INSERT INTO `topic` (`id_topic`, `titleTopic`, `publicationDate`, `user_id`) VALUES
-	(1, 'topic es', NULL, 3),
-	(2, 'topic en', NULL, 1),
-	(3, 'topic fr', NULL, 2);
+	(1, 'topic es', '2024-06-11 16:07:23', 3),
+	(2, 'topic en', '2024-06-11 16:07:24', 1),
+	(3, 'topic fr', '2024-06-11 16:07:24', 2);
 
 -- Dumping structure for table forum_sevilia.user
 CREATE TABLE IF NOT EXISTS `user` (
