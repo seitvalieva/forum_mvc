@@ -13,4 +13,6 @@ class TopicManager extends Manager{
     public function __construct(){
         parent::connect();
     }
+
+    
 }

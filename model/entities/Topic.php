@@ -38,22 +38,6 @@ final class Topic extends Entity{
     }
 
     /**
-     * Get the value of user
-     */ 
-    public function getUser(){
-        return $this->user;
-    }
-
-    /**
-     * Set the value of user
-     *
-     * @return  self
-     */ 
-    public function setUser($user){
-        $this->user = $user;
-        return $this;
-    }
-    /**
      * Get the value of titleTopic
      */ 
     public function getTitleTopic()
@@ -89,6 +73,22 @@ final class Topic extends Entity{
     {
         $this->publicationDate = $publicationDate;
 
+        return $this;
+    }
+    /**
+     * Get the value of user
+     */ 
+    public function getUser(){
+        return $this->user;
+    }
+
+    /**
+     * Set the value of user
+     *
+     * @return  self
+     */ 
+    public function setUser($user){
+        $this->user = $user;
         return $this;
     }
     
